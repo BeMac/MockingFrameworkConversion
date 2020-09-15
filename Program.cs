@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -34,6 +35,16 @@ namespace MockingFrameworkConversion
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void Test(IWebRequestHelper webRequestHelper)
+        {
+            webRequestHelper.Test();
+        }
+
+        public void Dispose(IWebRequestHelper webRequestHelper)
+        {
+            webRequestHelper.Dispose();
         }
     }
 }
