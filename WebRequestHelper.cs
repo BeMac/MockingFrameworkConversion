@@ -12,6 +12,7 @@ namespace MockingFrameworkConversion
         string GetResponse(HttpWebRequest oWebRequest, string szRequest);
         void Test();
         void Login(Configuration config);
+        string Search(string input, Configuration config);
     }
 
     public class WebRequestHelper : IWebRequestHelper
@@ -42,6 +43,13 @@ namespace MockingFrameworkConversion
             }
         }
 
+        public string Search(string input, Configuration config)
+        {
+            string fakeReturn = string.Empty;
+            return fakeReturn;
+        }
+
+        #region IDisposable
         protected virtual void Dispose(bool disposing)
         {
             if (!_disposed)
@@ -50,7 +58,6 @@ namespace MockingFrameworkConversion
                 {
                     // Stop and dispose timer here.
                 }
-
                 _disposed = true;
             }
         }
@@ -59,5 +66,6 @@ namespace MockingFrameworkConversion
         {
             Dispose(true);
         }
+        #endregion
     }
 }
