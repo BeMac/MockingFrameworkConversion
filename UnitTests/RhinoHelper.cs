@@ -8,6 +8,13 @@ namespace UnitTests
 {
     class RhinoHelper
     {
+
+        public static void AddDisposeExpectation(IWebRequestHelper webRequestHelper)
+        {
+            Expect.Call(delegate { webRequestHelper.Dispose(); }) //delegate needed since it is a void method
+                .IgnoreArguments().Constraints();
+        }
+
         public static void AddServiceRequestExpectation(IWebServiceHelper webServiceHelper)
         {
             Expect.On(webServiceHelper).Call(webServiceHelper.MakeWebServiceRequest()).Return("This Was Mocked");
@@ -47,10 +54,6 @@ namespace UnitTests
                 .Return(rawResponse);
         }
 
-        public static void AddDisposeExpectation(IWebRequestHelper webRequestHelper)
-        {
-            Expect.Call(delegate { webRequestHelper.Dispose(); }) //delegate needed since it is a void method
-                .IgnoreArguments().Constraints();
-        }
+
     }
 }

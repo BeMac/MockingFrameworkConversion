@@ -23,7 +23,7 @@ namespace UnitTests
                     using (Mocker.Current.Record())
                     {
                         mockedWebRequestHelper = Mocker.Current.CreateMock<IWebRequestHelper>();
-                        RhinoHelper.AddDisposeExpectation(mockedWebRequestHelper);
+                        //RhinoHelper.AddDisposeExpectation(mockedWebRequestHelper);
                     }
 
                     MainProgram testThread = new MainProgram(_config);
